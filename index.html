@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waveify — Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">♪</span> Waveify</div>
+    <nav>
+      <button class="nav-item active" data-view="home">⌂ <span>Home</span></button>
+      <button class="nav-item" data-view="search">⌕ <span>Search</span></button>
+      <button class="nav-item" data-view="library">▣ <span>Your Library</span></button>
+    </nav>
+    <div class="sidebar-section">
+      <div class="section-label">Your playlists</div>
+      <button class="playlist-link">＋ Create playlist</button>
+      <button class="playlist-link">♥ Liked Songs</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="history"><button id="back">‹</button><button id="forward">›</button></div>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" placeholder="What do you want to play?" autocomplete="off">
+      </div>
+      <button class="profile">Guest ▾</button>
+    </header>
+
+    <section id="homeView" class="view">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">YOUR MUSIC, YOUR WAY</p>
+          <h1>Good evening.</h1>
+          <p class="hero-copy">A clean, Spotify-inspired player for your own music collection.</p>
+          <button class="primary" id="heroPlay">▶ Play something</button>
+        </div>
+        <div class="hero-disc">♪</div>
+      </div>
+
+      <div class="section-head"><h2>Made for you</h2><button class="text-btn">See all</button></div>
+      <div id="cards" class="cards"></div>
+
+      <div class="section-head"><h2>Recently played</h2></div>
+      <div id="trackList" class="track-list"></div>
+    </section>
+
+    <section id="searchView" class="view hidden">
+      <h1>Search</h1>
+      <p class="muted">Search your local music library.</p>
+      <div id="searchResults" class="track-list"></div>
+    </section>
+
+    <section id="libraryView" class="view hidden">
+      <div class="section-head"><h1>Your Library</h1><button class="primary small" id="shuffleBtn">⤨ Shuffle</button></div>
+      <div id="libraryList" class="track-list"></div>
+      <div class="upload-note">
+        <strong>Add your music</strong>
+        <p>Put MP3 files in the <code>songs/</code> folder and update the track list in <code>script.js</code>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="player">
+    <div class="now-playing">
+      <div id="nowCover" class="cover small-cover">♪</div>
+      <div><strong id="nowTitle">Nothing playing</strong><span id="nowArtist">Choose a song</span></div>
+      <button id="likeBtn" class="icon-btn" title="Like">♡</button>
+    </div>
+    <div class="controls">
+      <div class="control-row">
+        <button id="shuffle" class="icon-btn">⤨</button>
+        <button id="prev" class="icon-btn">◀◀</button>
+        <button id="play" class="play-btn">▶</button>
+        <button id="next" class="icon-btn">▶▶</button>
+        <button id="repeat" class="icon-btn">↻</button>
+      </div>
+      <div class="progress-row">
+        <span id="currentTime">0:00</span>
+        <input id="progress" type="range" min="0" max="100" value="0">
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+    <div class="volume">
+      <span>🔊</span>
+      <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8">
+    </div>
+  </footer>
+
+  <audio id="audio"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
